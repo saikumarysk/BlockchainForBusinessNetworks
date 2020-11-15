@@ -1,0 +1,96 @@
+<div class="modal fade" id="addTransactionModal" tabindex="-1" role="dialog" aria-labelledby="addTransactionModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addTransactionModalLabel">Add Transaction</h4>
+      </div>
+      <form [formGroup]="myForm">
+        <div class="modal-body">
+
+
+          
+
+            
+              <div class="form-group text-left">
+                <label for="hostel">New Hostel</label>
+                
+                  <input formControlName="hostel" type="text" class="form-control">
+                
+              </div>
+
+              <div class="form-group text-left">
+                <label for="roomNo">New Room Number</label>
+                
+                  <input formControlName="roomNo" type="text" class="form-control">
+                
+              </div>
+            
+              <div class="form-group text-left">
+                <label for="relatedStudentRollNo">Related Student Roll Number</label>
+                
+                  <input formControlName="relatedStudentRollNo" type="text" class="form-control">
+                
+              </div>
+          
+
+        </div>
+        <div class="modal-footer">
+          <button (click)="addTransaction(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+		<strong>Error:</strong> {{errorMessage}}
+	</div>
+  <h1 id='transactionName'>Changing Room Number and Hostel</h1>
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTransactionModal">Add Transaction</button>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered table-responsive table-striped">
+        <thead class="thead">
+          <tr class="thead-cols">
+            
+                <th class="info">Room Number - Changed to</th>
+
+                <th class="info">Hostel - Changed to</th>
+            
+                <th class="info">Student Roll Number</th>
+
+                <th class="info">Transaction ID</th>
+
+                <th class="info">Transaction Timestamp</th>
+            
+              <!--<th class="info">Actions</th>-->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of allTransactions">
+
+            
+                <td>{{transaction.roomNo}}</td>
+
+                <td>{{transaction.hostel}}</td>
+            
+                <td>{{transaction.relatedStudentRollNo}}</td>
+
+                <td>{{transaction.transactionId}}</td>
+
+                <td>{{transaction.timestamp}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

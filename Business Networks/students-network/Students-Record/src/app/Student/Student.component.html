@@ -1,0 +1,132 @@
+<div class="modal fade" id="addAssetModal" tabindex="-1" role="dialog" aria-labelledby="addAssetModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="addAssetModalLabel">Add Asset</h4>
+			</div>
+			<form [formGroup]="myForm">
+				<div class="modal-body">
+					<div class="form-group text-left">
+						<label for="rollNo">rollNo</label>
+						<input formControlName="rollNo" type="text" class="form-control">
+					</div>
+					<div class="form-group text-left">
+						<label for="name">name</label>
+						<input formControlName="name" type="text" class="form-control">
+					</div>
+					<div class="form-group text-left">
+						<label for="roomNo">roomNo</label>
+						<input formControlName="roomNo" type="number" class="form-control">
+					</div>
+					<div class="form-group text-left">
+						<label for="hostel">hostel</label>
+						<input formControlName="hostel" type="text" class="form-control">
+					</div>
+					<div class="form-group text-left">
+						<label for="gender">gender</label>
+						<input formControlName="gender" type="text" class="form-control">
+					</div>
+				</div>
+				<div class="modal-footer">
+				<button (click)="addAsset(myForm);" type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="deleteAssetModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="deleteAssetModalLabel">Delete Asset</h4>
+			</div>
+			<form [formGroup]="myForm" (ngSubmit)="deleteAsset()">
+				<div class="modal-body">
+					Are you sure you want to delete this asset?
+				</div>
+				<div class="modal-footer">
+					<button (click)="deleteAsset()" type="submit" class="btn btn-danger" data-dismiss="modal">Yes</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="uploadFileModal" tabindex="-1" role="dialog" aria-labelledby="uploadFileModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="deleteAssetModalLabel">Upload a .csv File</h4>
+			</div>
+			<form [formGroup]="myForm" (ngSubmit)="csvFormAdd()">
+				<div class="modal-body">
+				<input type="file" name="csvFile" id="csvFile" />
+				</div>
+				<div class="modal-footer">
+					<button (click)="csvFormAdd()" type="submit" class="btn btn-success" data-dismiss="modal">Yes</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+		<strong>Error:</strong> {{errorMessage}}
+	</div>
+	<h1 id='assetName'>Student</h1>
+	<div class="row">
+		<div class="col-md-12 text-right">
+			<button type="button" class="btn btn-info" data-toggle="modal" data-target="#uploadFileModal"><span class="glyphicon glyphicon-folder-open"></span> Upload a .csv file</button>
+			<button (click)="resetForm()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssetModal">Add Asset</button>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-bordered table-responsive table-striped">
+			<thead class="thead">
+				<tr class="thead-cols">
+					<th class="info">rollNo</th>
+
+					<th class="info">name</th>
+
+					<th class="info">roomNo</th>
+
+					<th class="info">hostel</th>
+
+					<th class="info">gender</th>
+
+					<th class="info">Photo</th>
+
+					<th class="info">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let asset of allAssets">
+					<td>{{asset.rollNo}}</td>
+
+					<td>{{asset.name}}</td>
+
+					<td>{{asset.roomNo}}</td>
+
+					<td>{{asset.hostel}}</td>
+
+					<td>{{asset.gender}}</td>
+
+					<td><img style="width:100px;height:100px" src="http://photos.iitm.ac.in/byroll.php?roll={{asset.rollNo}}"></td>
+
+					<td> <button (click)="setId(asset.rollNo);" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAssetModal">Delete Asset</button></td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+	</div>
+</div>

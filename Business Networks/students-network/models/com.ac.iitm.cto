@@ -1,0 +1,38 @@
+namespace com.ac.iitm
+
+asset Student identified by rollNo
+{
+  o String rollNo
+  o String name
+  o Integer roomNo
+  o String hostel
+  o String gender
+}
+
+participant Viewer identified by rollNo
+{
+  o String rollNo
+  o String name
+}
+participant Staff identified by staffId
+{
+  o String staffId
+  o String name
+}
+
+transaction ChangeName
+{
+  o String name
+  o String relatedStudentRollNo
+}
+transaction ChangeHostel
+{
+  o String hostel
+  o Integer roomNo
+  o String relatedStudentRollNo
+}
+transaction ChangeGender
+{
+  o String gender
+  o String relatedStudentRollNo
+}

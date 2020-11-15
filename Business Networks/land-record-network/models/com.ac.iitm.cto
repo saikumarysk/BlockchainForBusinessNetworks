@@ -1,0 +1,21 @@
+namespace com.ac.iitm
+
+participant LandOwner identified by ownerId
+{
+	o String ownerId
+	o String name
+
+}
+
+asset Land identified by landId
+{
+	o String landId
+	o String country
+	o String ownerId
+}
+
+transaction LandTransaction
+{
+	o String idOfLand
+	o String newOwnerId
+}

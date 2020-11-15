@@ -1,0 +1,28 @@
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Students Record Network</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li class=""><a [routerLink]="['/']">Home</a></li>
+			<li><a [routerLink]="['/Student']">Student</a></li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Participants<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a [routerLink]="['/Viewer']">Viewer</a></li>
+					<li><a [routerLink]="['/Staff']">Staff</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Transactions<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a [routerLink]="['/ChangeName']">Change Name</a></li>
+					<li><a [routerLink]="['/ChangeHostel']">Change Hostel</a></li>
+					<li><a [routerLink]="['/ChangeGender']">Change Gender</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+<router-outlet></router-outlet>
