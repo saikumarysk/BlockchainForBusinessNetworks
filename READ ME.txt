@@ -1,0 +1,15 @@
+This folder contains all the work done by me for my B. Tech Project, EE4900, under my guide, Dr Shweta Agrawal and my co-guide Dr Krishna Jagannathan. I have explored the idea of using Blockchains for general purpose ledger service. I generated two business networks, one which contains the details of undergraduate students currently pursuing Electrical Engineering in IIT Madras and the other has land details which are generated virtually.
+
+Files and Folders present :-
+----------------------------
+
+Business Networks - Contains both the business networks developed, students-network and land-record-network. All the programs and files necessary for starting of the business network and the website corresponding to the business network are present here.
+Data Files - All the data that I have extracted the institute students server and also virtual data generated are present in this folder.
+Java Files - All the .java files used for generating and modifying data for our needs are present in the folder.
+Presentation - Contains image files and .pptx file for the presentation. Also contains a .pdf version of the presentation.
+Report - Contains the LaTeX file and .pdf file of the detailed report of the project. Two image files used are also present which are used in the report.
+prereqs-ubuntu.sh - The Bash file used for the download and installation of all the pre-requisites for the system. Available in the official Hyperledger Composer website too.
+downloadFabric.sh - Bash file useful for the installation of Hyperledger Fabric and Hyperledger Composer.
+startFabric.sh - Bash file useful for starting the Hyperledger Fabric so that a network can be built upon it.
+createPeerAdminCard.sh - Bash file used for creating an admin of peers(virtual) present in the local network.
+stopFabric.sh - After finishing of any changes, we must stop the underlying Hyperledger Fabric and start a new instance. This Bash file helps in achieving that goal.
