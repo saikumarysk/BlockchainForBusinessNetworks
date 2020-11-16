@@ -6,6 +6,7 @@ Files and Folders present :-
 Business Networks - Contains both the business networks developed, students-network and land-record-network. All the programs and files necessary for starting of the business network and the website corresponding to the business network are present here.
 Data Files - All the data that I have extracted the institute students server and also virtual data generated are present in this folder.
 Java Files - All the .java files used for generating and modifying data for our needs are present in the folder.
+Presentation - Contains image files and .pptx file for the presentation. Also contains a .pdf version of the presentation.
 prereqs-ubuntu.sh - The Bash file used for the download and installation of all the pre-requisites for the system. Available in the official Hyperledger Composer website too.
 downloadFabric.sh - Bash file useful for the installation of Hyperledger Fabric and Hyperledger Composer.
 startFabric.sh - Bash file useful for starting the Hyperledger Fabric so that a network can be built upon it.
